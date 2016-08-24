@@ -1,0 +1,24 @@
+#! /usr/bin/env php
+<?php
+
+namespace Cucumber\Gherkin;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+(function (string $cmd, string ...$files)
+{
+    if (!$files) {
+        echo "Error: No file provided for token generation\n";
+        echo "Usage: $cmd file [...] \n";
+        exit(1);
+    }
+
+    $parser = new Parser(new TokenFormatterBuilder());
+    $matcher = new TokenMatcher();
+
+    foreach ($files as $file) {
+        $scanner = new TokenScanner(new \SplFileObject($file));
+        echo ($parser->parse($scanner, $matcher));
+    }
+
+})(...$argv);

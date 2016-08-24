@@ -1,0 +1,16 @@
+{
+  "autoload": {
+    "files": [
+      "src/Cucumber/Gherkin/Parser.php"
+    ],
+    "psr-0": {
+      "Cucumber\\Gherkin": "src"
+    }
+  },
+  "require": {
+    "php" : "~7.0"
+  },
+  "require-dev": {
+    "phpspec/phpspec" : "~3.0"
+  }
+}
